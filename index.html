@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en-US" class="h-100">
+
+<head>
+    <meta charset="UTF-8">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>Jakarta Prov CSIRT</title>
+    <!-- Favicon-->
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/csirt-main-ico.ico">
+    <link rel="icon" type="image/x-icon" href="/images/csirt-main-ico.ico">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
+    <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+    <link href="https://vjs.zencdn.net/7.21.1/video-js.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <!-- FONT -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+        h1,
+        h2 {
+            text-align: center;
+        }
+
+        .container {
+            margin: 150px auto;
+        }
+
+        [class*="slideshow"] {
+            max-width: 100%;
+            height: 620px;
+            margin: 0 auto 40px;
+            outline: none;
+        }
+
+        [class*="slideshow"] img {
+            display: none;
+        }
+
+        .image_wrapper .text_content {
+            margin: auto;
+            width: 50%;
+            margin-top: 330px;
+            color: #fff;
+            text-shadow: 0 0 3px rgba(0, 0, 0, .5);
+            text-align: center;
+        }
+
+        .text_content * {
+            margin: .1em 0;
+        }
+
+        .lapor-insiden {
+            border: solid 1px #de8300;
+            height: 50px;
+            background: #000;
+            border-radius: 5px;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .footer-container {
+            margin-top: -70px;
+        }
+
+        .footer-title {
+            text-align: left;
+        }
+
+        .footer-content {
+            text-align: left;
+        }
+
+        #btn-back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: none;
+        }
+
+        #btn-back-to-bottom {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 9999;
+        }
+        .search-container {
+            font-family: 'Nunito', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: auto;
+        }
+
+        .search-container input[type="text"] {
+            width: 200px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .navbar-brand img {
+            height: 40px;
+        }
+    </style>
+    <meta name="csrf-param" content="_csrf-frontend">
+    <meta name="csrf-token"
+        content="CTSzuFvf0uluW1F6O4HIFbQ1rZyuiPrDk0gBWr87N7ZhfOPCGJGbhlYKI05f-ZtY5Ead0-P7wrH1MHcIi15PxQ==">
+
+    <link href="/css/styles.css" rel="stylesheet">
+    <link href="/css/square1.css" rel="stylesheet">
+    <link href="/css/sharetastic.css" rel="stylesheet">
+    <link href="/css/tinycarousel.css" rel="stylesheet">
+    <link href="/css/fancybox.css" rel="stylesheet">
+</head>
+
+<body id="page-top">
+    <script type="module">
+        import Chatbot from "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js"
+        Chatbot.init({
+            chatflowid: "6be851b4-0bc6-48c2-a63c-caa4a6339e30",
+            apiHost: "https://flowiseai-railway-production-b676.up.railway.app",
+            chatflowConfig: {
+                // topK: 2
+            },
+            theme: {
+                button: {
+                    backgroundColor: "#F08726",
+                    right: 20,
+                    bottom: 20,
+                    size: 68, // small | medium | large | number
+                    dragAndDrop: true,
+                    //iconColor: "white",
+                    //customIconSrc: "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/svg/google-messages.svg",
+                    customIconSrc: "/Images/Sijesi.svg",
+                },
+                tooltip: {
+                    showTooltip: true,
+                    tooltipMessage: 'Ngobrol bareng SiJesi yuk👋!',
+                    tooltipBackgroundColor: '#F08346',
+                    tooltipTextColor: 'white',
+                    tooltipFontSize: 16,
+                    tooltipFont: 'Nunito, sans-serif'
+                },
+                chatWindow: {
+                    showTitle: true,
+                    title: 'Siber Insiden JakartaProv-CSIRT Chatbot (SiJesi)',
+                    //titleAvatarSrc: 'https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/svg/google-messages.svg',
+                    titleAvatarSrc:  "/Images/Diskominfo.png",
+                    showAgentMessages: true,
+                    welcomeMessage: 'Halo 👋! Aku SiJesi siap membantu kamu mengatasi masalah insiden sibermu. Ada yang bisa aku bantu ?',
+                    errorMessage: 'This is a custom error message',
+                    backgroundColor: "#ffffff",
+                    height: 450,
+                    width: 400,
+                    fontSize: 12,
+                    poweredByTextColor: "#F08726",
+                    botMessage: {
+                        backgroundColor: "#f7f8ff",
+                        textColor: "#303235",
+                        showAvatar: true,
+                        avatarSrc: "/Images/Sijesi.svg",
+                    },
+                    userMessage: {
+                        backgroundColor: "#3B81F6",
+                        textColor: "#ffffff",
+                        showAvatar: true,
+                        avatarSrc: "https://raw.githubusercontent.com/zahidkhawaja/langchain-chat-nextjs/main/public/usericon.png",
+                    },
+                    textInput: {
+                        placeholder: 'Type your question',
+                        backgroundColor: '#ffffff',
+                        textColor: '#303235',
+                        sendButtonColor: '#F08726',
+                        maxChars: 500,
+                        maxCharsWarningMessage: 'You exceeded the characters limit. Please input less than 50 characters.',
+                        autoFocus: true, // If not used, autofocus is disabled on mobile and enabled on desktop. true enables it on both, false disables it on both.
+                        sendMessageSound: true,
+                        // sendSoundLocation: "send_message.mp3", // If this is not used, the default sound effect will be played if sendSoundMessage is true.
+                        receiveMessageSound: true,
+                        // receiveSoundLocation: "receive_message.mp3", // If this is not used, the default sound effect will be played if receiveSoundMessage is true. 
+                    },
+                    feedback: {
+                        color: '#F08346',
+                    },
+                    footer: {
+                        textColor: '#F08726',
+                        text: 'Made by',
+                        company: 'HappySan',
+                        companyLink: 'https://flowiseai.com',
+                    }
+                }
+            }
+        })
+    </script>
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-sm bg-secondary" style="padding-left: 10px; padding-right: 10px;">
+        <a class="navbar-brand" href="#page-top"><img src="/images/logo.png" alt="Logo"></a>
+        <button class="navbar-toggler bg-dark text-white rounded" style="margin-right: 10px;" type="button"
+            data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded active" href="/index.php" style="font-family: 'Nunito', sans-serif;">Home</a></li>
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/profile" style="font-family: 'Nunito', sans-serif;">Profil</a>
+                </li>
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/event"style="font-family: 'Nunito', sans-serif;">Event</a>
+                </li>
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact"style="font-family: 'Nunito', sans-serif;">Publikasi</a>
+                    <ul class="dropdown-content">
+                        <li><a href="/peringatan-keamanan" style="font-family: 'Nunito', sans-serif;">Peringatan Keamanan</a></li>
+                        <li><a href="/info-grafis"style="font-family: 'Nunito', sans-serif;">Infografis Keamanan Informasi</a></li>
+                        <li><a href="/peraturan-kebijakan"style="font-family: 'Nunito', sans-serif;">Peraturan kebijakan</a></li>
+                        <li><a href="/news"style="font-family: 'Nunito', sans-serif;">Berita Siber (Cyber Blitz)</a></li>
+                        <li><a href="/honeypot"style="font-family: 'Nunito', sans-serif;">Statistik (Honeypot)</a></li>
+                        <li><a href="/panduan-teknis"style="font-family: 'Nunito', sans-serif;">Panduan Teknis</a></li>
+                        <li><a href="/rfc"style="font-family: 'Nunito', sans-serif;">RFC2350</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
+                        href="/cyber-report"style="font-family: 'Nunito', sans-serif;">Lapor Insiden Siber</a></li>
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
+                        href="/contact"style="font-family: 'Nunito', sans-serif;">Kontak Kami</a></li>
+            </ul>
+            <div class="search-container">
+                <form id="w0" action="/site/search" method="post">
+                    <input type="hidden" name="_csrf-frontend"
+                        value="CTSzuFvf0uluW1F6O4HIFbQ1rZyuiPrDk0gBWr87N7ZhfOPCGJGbhlYKI05f-ZtY5Ead0-P7wrH1MHcIi15PxQ==">
+                    <input type="text" name="search" class="search" placeholder="Search">
+                </form>
+            </div>
+        </div>
+    </nav>
+    <!--<div style="width: 100%; position: fixed; z-index: 999999999; margin-top:500px">
+        <div style="float: right;"><a href="https://csirt.jakarta.go.id/cyber-report" target="_blank"><img
+                    src="/images/lapor.png"></a><a href="https://api.whatsapp.com/send?phone=6281388870152"
+                target="_blank"><img src="/images/wa.png"></a></div>
+    </div>-->
+    <!-- Masthead-->
+    <button type="button" class="btn btn-danger btn-floating btn-lg" id="btn-back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    <button type="button" class="btn btn-danger btn-floating btn-lg" id="btn-back-to-bottom">
+        <i class="fas fa-arrow-down"></i>
+    </button>
+    <style>
+        .swiper {
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+
+        .swiper-slide img {
+            height: 625px;
+            margin: 4% auto;
+            object-fit: cover;
+
+        }
+
+        .swiper-slide video {
+            height: 625px;
+            margin: 4% auto;
+            object-fit: cover;
+
+        }
+    </style>
+    <header>
+        <div class="slideshow example-1">
+            <div>
+                <img src="images/header-1a_03.jpg" alt="CSIRT Jakarta">
+                <div class="text_content">
+                    <h3>DKI PROV CSIRT</h3>
+                    <h5>Adalah penyedia layanan tim respon insiden keamanan siber<br>di lingkungan Pemprov DKI Jakarta
+                    </h5><br>
+                    <a href="https://csirt.jakarta.go.id/cyber-report" target="_blank"><input type="button"
+                            value="LAPOR INSIDEN SIBER" class="lapor-insiden"></a>
+                </div>
+            </div>
+            <div>
+                <img src="images/banner/cvb_20230830010607.jpg">
+                <div class="text_content">
+                    <a href="https://csirt.jakarta.go.id/panduan-teknis/download?id=32">
+                        <h3>Langkah-langkah Penanggulangan Insiden Web Defacement: Judi Online</h3>
+                    </a>
+                </div>
+            </div>
+            <div>
+                <img src="images/banner/himbauan keamanan_20230130022409.jpg">
+                <div class="text_content">
+                    <a href="https://csirt.jakarta.go.id/news/view?id=76">
+                        <h3>Imbauan Keamanan Penipuan dengan Modus Berkas Aplikasi Berbasis Android (.apk) melalui PPS
+                            Pemilu 2024</h3>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Portfolio Section-->
+    <section class="page-section portfolio" id="portfolio"style="font-family: 'Nunito', sans-serif;">
+        <div class="container content">
+            <div class="box-title1">Berita Terkini</div>
+            <div class="box-title2">
+                <a href="/news" style="color: black;">Index Berita ></a>
+            </div>
+        </div>
+        <div class="container content">
+            <div class="divider-custom">
+                <div class="divider-custom-line"></div>
+            </div>
+            <!-- Portfolio Grid Items-->
+            <div class="row">
+                <!-- Portfolio Item 1-->
+
+                <div class="col-md-6 col-lg-4 mb-5">
+                    <img src="/images/berita/alert_20240110065020.jpg" width="100%">
+                    <div style="padding: 20px;">
+                        <h6>Carbanak Malware Kembali Beroperasi Dalam Serangan Ransomware</h6>
+                        <span style="font-size: 12px;">2024-01-10 13:50:20 |
+                            https://securityaffairs.com/156410/malware/carbanak-malware-ransomware-attacks.html </span>
+                        <p>Peneliti dari NCC Group melaporkan adanya aktivitas malware Carbanak dalam sebuah serangan
+                            ransomware. Kelompok kejahatan siber Carbanak pertama kali diidentifikasi oleh Kaspersky Lab
+                            pada tahun 2015, dan telah berhasil mencuri setidaknya 300 juta
+                            <br><a href="/news/view?id=80"><input type="button" value="Selengkapnya"
+                                    class="selengkapnya"></a>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4 mb-5">
+                    <img src="/images/berita/malware_20240110064927.jpg" width="100%">
+                    <div style="padding: 20px;">
+                        <h6>Peningkatan Aktivitas Rugmi Malware Loader</h6>
+                        <span style="font-size: 12px;">2024-01-10 13:49:27 |
+                            https://thehackernews.com/2023/12/new-rugmi-malware-loader-surges-with.html</span>
+                        <p>Malware loader baru bernama Rugmi digunakan oleh pelaku ancaman untuk menyebarkan pencuri
+                            informasi seperti Lumma Stealer, Vidar, RecordBreaker, dan Rescoms. Perusahaan keamanan
+                            siber ESET melacak trojan ini dengan nama Win/TrojanDownloader.Rugmi,
+                            <br><a href="/news/view?id=79"><input type="button" value="Selengkapnya"
+                                    class="selengkapnya"></a>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4 mb-5">
+                    <img src="/images/berita/security_20220624011809_20240110064818.jpg" width="100%">
+                    <div style="padding: 20px;">
+                        <h6>Barracuda Memperbaiki Kerentanan Baru ESG Zero-Day yang Dieksploitasi Oleh Kelompok Peretas
+                            UNC4841</h6>
+                        <span style="font-size: 12px;">2024-01-10 13:48:18 | idsirtii.or.id</span>
+                        <p>Email Security Gateways (ESG) pada Barracuda Networks kembali menjadi korban eksploitasi para
+                            peretas yang menyalahgunakan kerentanan zero-day pada open-source library untuk memproses
+                            file Excel. Kerentanan yang diidentifikasi sebagai CVE-2023-710
+                            <br><a href="/news/view?id=78"><input type="button" value="Selengkapnya"
+                                    class="selengkapnya"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="page-section portfolio" id="portfolio">
+        <div class="container infografis" style="margin-top: -145px;">
+            <h6>Infografis Terkini<br>Keamanan Siber</h6>
+            <div id="slider1">
+                <a class="buttons prev" href="#">&#60;</a>
+                <div class="viewport">
+                    <ul class="overview">
+                        <li><a data-fancybox="gallery"
+                                data-src="/images/gallery/Waspada penipuan melalui whatsapp berkedok file apk -share_20230901083117.jpg">
+                                <img src="images/gallery/Waspada penipuan melalui whatsapp berkedok file apk -share_20230901083117.jpg"
+                                    style="width:100%;border:1px solid #000;" /></a></li>
+                        <li><a data-fancybox="gallery"
+                                data-src="/images/gallery/tips aman wifi publik_20230623095425.jpg">
+                                <img src="images/gallery/tips aman wifi publik_20230623095425.jpg"
+                                    style="width:100%;border:1px solid #000;" /></a></li>
+                        <li><a data-fancybox="gallery"
+                                data-src="/images/gallery/Apa yang harus dilakukan pengelola server jika mengalami insiden siber_20230605075944.jpg">
+                                <img src="images/gallery/Apa yang harus dilakukan pengelola server jika mengalami insiden siber_20230605075944.jpg"
+                                    style="width:100%;border:1px solid #000;" /></a></li>
+                        <li><a data-fancybox="gallery"
+                                data-src="/images/gallery/WhatsApp Image 2023-05-23 at 11.22.14_20230523042511.jpeg">
+                                <img src="images/gallery/WhatsApp Image 2023-05-23 at 11.22.14_20230523042511.jpeg"
+                                    style="width:100%;border:1px solid #000;" /></a></li>
+                        <li><a data-fancybox="gallery"
+                                data-src="/images/gallery/Tips agar terhindar dari serangan backdoor_20230523042411.jpeg">
+                                <img src="images/gallery/Tips agar terhindar dari serangan backdoor_20230523042411.jpeg"
+                                    style="width:100%;border:1px solid #000;" /></a></li>
+                        <li><a data-fancybox="gallery"
+                                data-src="/images/gallery/online reward program share_20230509022050.jpg">
+                                <img src="images/gallery/online reward program share_20230509022050.jpg"
+                                    style="width:100%;border:1px solid #000;" /></a></li>
+                    </ul>
+                </div>
+                <a class="buttons next" href="#">&#62;</a>
+            </div>
+        </div>
+    </section>
+    <section class="page-section portfolio" id="portfolio"style="font-family: 'Nunito', sans-serif;">
+        <div class="container content">
+            <div class="box-title1">
+                Gallery Kegiatan
+            </div>
+            <div class="box-title2">
+                <a href="/gallery" style="color: black;">Index Gallery ></a>
+            </div>
+        </div>
+        <div class="container content">
+            <div class="divider-custom">
+                <div class="divider-custom-line"></div>
+            </div>
+            <!-- Portfolio Grid Items-->
+            <div class="row">
+                <!-- Portfolio Item 1-->
+                <div class="col-sm-3 py-2">
+                    <div class="card h-80 shadow-sm">
+                        <a href="/gallery/view?id=104"><img style="width: 100%;"
+                                src="/images/gallery/Screenshot (132)_20230831091645.png" class="card-img-top"></a>
+                        <div class="card-body">
+                            <a href="/gallery/view?id=104" style="color: black;">
+                                <h6 class="card-title">Sosialisasi Security Awareness Keamanan Mobile Computing dan
+                                    Teleworking</h6>
+                            </a>
+                            <span style="font-size: 12px;">31-Aug-2023</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-3 py-2">
+                    <div class="card h-80 shadow-sm">
+                        <a href="/gallery/view?id=103"><img style="width: 100%;"
+                                src="/images/gallery/Screenshot (111)_20230831091502.png" class="card-img-top"></a>
+                        <div class="card-body">
+                            <a href="/gallery/view?id=103" style="color: black;">
+                                <h6 class="card-title">Security awareness Potensi Ancaman Siber di Tahun 2023</h6>
+                            </a>
+                            <span style="font-size: 12px;">31-Aug-2023</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-3 py-2">
+                    <div class="card h-80 shadow-sm">
+                        <a href="/gallery/view?id=71"><img style="width: 100%;"
+                                src="/images/gallery/Screenshot_11_20221020012452.jpg" class="card-img-top"></a>
+                        <div class="card-body">
+                            <a href="/gallery/view?id=71" style="color: black;">
+                                <h6 class="card-title">Sosialisasi Security Awareness - Menjaga Keamanan Akses Jaringan
+                                </h6>
+                            </a>
+                            <span style="font-size: 12px;">20-Oct-2022</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-3 py-2">
+                    <div class="card h-80 shadow-sm">
+                        <a href="/gallery/view?id=63"><img style="width: 100%;"
+                                src="/images/gallery/Screenshot_1_20220916041035.jpg" class="card-img-top"></a>
+                        <div class="card-body">
+                            <a href="/gallery/view?id=63" style="color: black;">
+                                <h6 class="card-title">Sosialisasi Security Awareness - Workshop Secure Coding #3</h6>
+                            </a>
+                            <span style="font-size: 12px;">02-Aug-2022</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-3 py-2">
+                    <div class="card h-80 shadow-sm">
+                        <a href="/gallery/view?id=56"><img style="width: 100%;"
+                                src="/images/gallery/WhatsApp Image 2022-07-27 at 09.49.38_20220728030031.jpeg"
+                                class="card-img-top"></a>
+                        <div class="card-body">
+                            <a href="/gallery/view?id=56" style="color: black;">
+                                <h6 class="card-title">Penilan kematangan Siber Oleh BSSN Senin 25 - rabu 27 Juli 2022
+                                </h6>
+                            </a>
+                            <span style="font-size: 12px;">28-Jul-2022</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-3 py-2">
+                    <div class="card h-80 shadow-sm">
+                        <a href="/gallery/view?id=55"><img style="width: 100%;"
+                                src="/images/gallery/Screenshot_8_20220728024045.jpg" class="card-img-top"></a>
+                        <div class="card-body">
+                            <a href="/gallery/view?id=55" style="color: black;">
+                                <h6 class="card-title">Workshop Secure Coding #2 Senin 18 Juli 2022</h6>
+                            </a>
+                            <span style="font-size: 12px;">28-Jul-2022</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" id="btn-modal" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+        style="display:none">
+    </button>
+    <button onclick="playVid()" type="button" style="display:none"></button>
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel" style="text-align: center;"> Selamat Datang Di
+                        JAKARTA PROV CSIRT</h5>
+                    <button type="button" id="close" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body" style=" background: rgba(0,0,0,0.9);">
+                    <div class="swiper mySwiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <a href="https://bit.ly/BSSADiskominfotik" target="_blank">
+                                    <img src="/images/pop-up/survey kepuasan rev 2024_20240620070005.jpg" alt="">
+                                </a>
+                            </div>
+
+
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+
+        document.addEventListener("DOMContentLoaded", () => {
+
+            document.getElementById("btn-modal").click();
+            var myModal = document.getElementById('staticBackdrop');
+            var vid = document.getElementById("myVideo");
+
+            myModal.addEventListener('hide.bs.modal', function () {
+                vid.pause();
+
+            });
+        });
+
+    </script>
+
+
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+
+    </script> <!-- Footer-->
+    <footer class="footer text-center" style="background-image: url('/images/bgfooter.jpg'); background-size: cover; background-position: center;"style="font-family: 'Nunito', sans-serif;">
+        <div class="container footer-container">
+            <!-- Portfolio Grid Items-->
+            <div class="row">
+                <!-- Portfolio Item 1-->
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="footer-title">
+                        <img src="/images/logo.png">
+                    </div>
+                    <div class="footer-content">
+                        <p>Tim Tanggap Insiden Siber (Computer Security Incident Response Team) Pemerintah Provinsi DKI
+                            Jakarta yang selanjutnya disebut dengan <strong>JakartaProv-CSIRT</strong> merupakan CSIRT
+                            Pemprov DKI Jakarta.</p>
+                        <p>Tim <strong>JakartaProv- CSIRT</strong> ditetapkan oleh Sekretaris Daerah Provinsi DKI
+                            Jakarta dalam Keputusan Penjabat Sekretaris Daerah DKI Jakarta Nomor: 41 Tahun 2020 Tentang
+                            Compu<br><a href="/profile"><input type="button" value="Selengkapnya"
+                                    class="selengkapnya"></a>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="footer-title">
+                        Visitor
+                    </div>
+                    <div class="footer-content">
+                        Pengunjung<br />
+                        Online : 3<br />
+                        Hari Ini : 45<br />
+                        Tanggal : 08-07-2024 <br />
+                        Total Pengunjung : 45479<br />
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="footer-title">
+                        Link
+                    </div>
+                    <div class="footer-content">
+                        <ul>
+                            <li><a href="/profile" style="color:white;">Profil</a></li>
+                            <li><a href="/peringatan-keamanan" style="color:white;">Peringatan Keamanan</a></li>
+                            <li><a href="/event" style="color:white;">Event</a></li>
+                            <li><a href="/contact" style="color:white;">Kontak Kami</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="footer-title">
+                        JakartaProv-CSIRT
+                    </div>
+                    <div class="footer-content">
+                        <ul class="address">
+                            <li class="lokasi">
+                                <div style="width:30px; float: left;"><img src="/images/lokasi.png"> </div>
+                                <div style="width:237px; float: left; padding: 5px;">Bidang Siber, Sandi dan Aplikasi
+                                    Diskominfotik Provinsi DKI Jakarta Balaikota Blok H Lantai 13, JL Merdeka Selatan
+                                    8-9, Jakarta Pusat 10110 </div>
+                            </li>
+                            <li class="contact">
+                                <div style="width:30px; float: left;"><img src="/images/contact.png"></div>
+                                <div style="width:237px; float: left; padding: 5px;">081388870152</div>
+                            </li>
+                            <li class="email">
+                                <div style="width:30px; float: left;"><img src="/images/email.png"></div>
+                                <div style="width:237px; float: left; padding: 5px;">csirt@jakarta.go.id</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_W4TV8HefoqtmembaoGfuATPYy7OKsKE&callback=initMap&libraries=&v=weekly"async></script> -->
+    <script>
+        var namaBulan = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus',
+            'September', 'Oktober', 'November', 'Desember'],
+            picker = new Pikaday({
+                numberOfMonths: 1,
+                field: document.getElementById('datepicker'),
+                firstDay: 1,
+                minDate: new Date(1950, 0, 1),
+                maxDate: new Date(2050, 12, 31),
+                yearRange: [1950, 2050],
+                i18n: {
+                    previousMonth: 'Bulan sebelumnya',
+                    months: namaBulan,
+                    weekdays: ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jummat', 'Sabtu'],
+                    weekdaysShort: ['Ming', 'Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab']
+                },
+                toString(date, format) {
+                    // you should do formatting based on the passed format,
+                    // but we will just return 'D/M/YYYY' for simplicity
+                    const day = date.getDate();
+                    const month = date.getMonth() + 1;
+                    const year = date.getFullYear();
+                    return `${day}-${month}-${year}`;
+                },
+                parse(dateString, format) {
+                    // dateString is the result of `toString` method
+                    const parts = dateString.split('/');
+                    const day = parseInt(parts[0], 10);
+                    const month = parseInt(parts[1], 10) - 1;
+                    const year = parseInt(parts[2], 10);
+                    return new Date(day, month, year);
+                }
+            });
+        pickerEnd = new Pikaday({
+            numberOfMonths: 1,
+            field: document.getElementById('end_date'),
+            firstDay: 1,
+            minDate: new Date(1950, 0, 1),
+            maxDate: new Date(2050, 12, 31),
+            yearRange: [1950, 2050],
+            i18n: {
+                previousMonth: 'Bulan sebelumnya',
+                months: namaBulan,
+                weekdays: ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jummat', 'Sabtu'],
+                weekdaysShort: ['Ming', 'Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab']
+            },
+            toString(date, format) {
+                // you should do formatting based on the passed format,
+                // but we will just return 'D/M/YYYY' for simplicity
+                const day = date.getDate();
+                const month = date.getMonth() + 1;
+                const year = date.getFullYear();
+                return `${day}-${month}-${year}`;
+            },
+            parse(dateString, format) {
+                // dateString is the result of `toString` method
+                const parts = dateString.split('/');
+                const day = parseInt(parts[0], 10);
+                const month = parseInt(parts[1], 10) - 1;
+                const year = parseInt(parts[2], 10);
+                return new Date(day, month, year);
+            }
+        });
+        let mybutton = document.getElementById("btn-back-to-top");
+        let mybuttonDown = document.getElementById("btn-back-to-bottom");
+
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function () {
+            scrollFunction();
+        };
+
+        function scrollFunction() {
+            if (
+                document.body.scrollTop > 150 ||
+                document.documentElement.scrollTop > 150) {
+                mybutton.style.display = "block";
+                mybuttonDown.style.display = "none";
+
+            }
+            else {
+                mybutton.style.display = "none";
+                mybuttonDown.style.display = "block";
+            }
+        }
+        // When the user clicks on the button, scroll to the top of the document
+        mybutton.addEventListener("click", backToTop);
+        mybuttonDown.addEventListener("click", scrollToBottom);
+
+        function backToTop() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+        function scrollToBottom() {
+            document.body.scrollTop = document.body.scrollHeight;
+            document.documentElement.scrollTop = document.documentElement.scrollHeight;
+        }
+    </script>
+    <script src="https://vjs.zencdn.net/7.21.1/video.min.js"></script>
+    <script src="/assets/9971dffd/jquery.js"></script>
+    <script src="/assets/f1d964c7/yii.js"></script>
+    <script src="/js/square1.js"></script>
+    <script src="/js/articulate.min.js"></script>
+    <script src="/js/sharetastic.js"></script>
+    <script src="/js/jquery.tinycarousel.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/all.js"></script>
+    <script src="/js/fancybox.umd.js"></script>
+    <script src="/assets/f1d964c7/yii.activeForm.js"></script>
+    <script>$('#slider1').tinycarousel();
+        Fancybox.bind('[data-fancybox="gallery"]', {
+            infinite: false
+        });</script>
+    <script>jQuery(function ($) {
+            jQuery('#w0').yiiActiveForm([], []);
+            $('.example-1').square1({ caption: 'none', theme: 'light' });
+        });</script>
+</body>
+
+</html>
